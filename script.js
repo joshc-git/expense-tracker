@@ -31,7 +31,7 @@ function incomeExpense() {
 // Create history list
 function displayHistory() {
     history.innerHTML = `
-    <h2>History</h2>
+    <h2>History <span>(Click to remove items)</h2>
     <ul>
         ${transactions.map(transaction => `<li class="${transaction.amount > 0 ? 'history-income' : 'history-expense'}">${transaction.text} <span>$${parseFloat(transaction.amount).toFixed(2)}</span></li>`).join('')}
     </ul>

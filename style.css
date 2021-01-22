@@ -85,6 +85,11 @@ main h2 {
     margin-bottom: 15px;
 }
 
+main h2 span {
+    font-size: .8rem;
+    font-weight: 400;
+}
+
 .history ul {
     margin-bottom: 40px;
 }
@@ -115,6 +120,11 @@ main h2 {
 .transaction label {
     font-size: 1rem;
     font-weight: 600;
+}
+
+.transaction label span {
+    font-size: .8rem;
+    font-weight: 400;
 }
 
 .transaction input {
