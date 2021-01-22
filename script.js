@@ -36,6 +36,23 @@ function displayHistory() {
         ${transactions.map(transaction => `<li class="${transaction.amount > 0 ? 'history-income' : 'history-expense'}">${transaction.text} <span>$${parseFloat(transaction.amount).toFixed(2)}</span></li>`).join('')}
     </ul>
     `;
+
+    // Remove from history
+    const historyEl = document.querySelectorAll('.history li');
+    if (historyEl.length > 0) {
+        historyEl.forEach((item, index) => {
+            item.addEventListener('click', () => {
+                transactions.splice(index, 1);
+                localStorage.setItem('transactions', JSON.stringify(transactions));
+
+                displayHistory();
+                incomeExpense();
+            })
+        })
+    } else {
+        history.innerHTML = '';
+        clearHistory.classList.add('disabled');
+    }
 }
 
 // Handle transaction text/amount

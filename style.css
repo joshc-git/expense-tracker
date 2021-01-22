@@ -96,6 +96,7 @@ main h2 {
     padding: 10px;
     margin-bottom: 5px;
     font-weight: 600;
+    cursor: pointer;
 }
 
 .history li.history-expense {
