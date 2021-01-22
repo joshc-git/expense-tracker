@@ -72,6 +72,10 @@ main {
     color: rgb(175, 0, 0);
 }
 
+main {
+    margin-bottom: 35px;
+}
+
 main h2 {
     font-size: 1.2rem;
     display: block;

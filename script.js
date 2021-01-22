@@ -11,7 +11,7 @@ let transactions = [];
 
 // Reset history
 function removeHistory() {
-    transactions.splice(0);
+    transactions = [];
     localStorage.setItem('transactions', JSON.stringify(transactions));
     history.innerHTML = '';
     clearHistory.classList.add('disabled');
@@ -20,8 +20,8 @@ function removeHistory() {
 
 // Display income, expense & balance
 function incomeExpense() {
-    const allIncome = transactions.filter(number => number.amount > 0).reduce((acc, current) => acc + parseInt(current.amount), 0);
-    const allExpense = transactions.filter(number => number.amount < 0).reduce((acc, current) => acc - parseInt(current.amount), 0);
+    const allIncome = transactions.filter(number => number.amount > 0).reduce((acc, current) => acc + parseFloat(current.amount), 0);
+    const allExpense = transactions.filter(number => number.amount < 0).reduce((acc, current) => acc - parseFloat(current.amount), 0);
     
     income.innerHTML = '$' + allIncome.toFixed(2);
     expense.innerHTML = '$' + allExpense.toFixed(2);
@@ -33,7 +33,7 @@ function displayHistory() {
     history.innerHTML = `
     <h2>History</h2>
     <ul>
-        ${transactions.map(transaction => `<li class="${transaction.amount > 0 ? 'history-income' : 'history-expense'}">${transaction.text} <span>$${parseInt(transaction.amount).toFixed(2)}</span></li>`).join('')}
+        ${transactions.map(transaction => `<li class="${transaction.amount > 0 ? 'history-income' : 'history-expense'}">${transaction.text} <span>$${parseFloat(transaction.amount).toFixed(2)}</span></li>`).join('')}
     </ul>
     `;
 }
